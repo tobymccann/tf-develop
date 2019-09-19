@@ -5,9 +5,19 @@ variable "domain_name" {
   type        = "string"
 }
 
+variable "do_record_ttl" {
+  description = "DNS A Record TTL"
+  type        = "number"
+}
+
 variable "do_droplet_name" {
   description = "Droplet name"
   type        = "string"
+}
+
+variable "do_droplet_size" {
+  description = "Map of Droplet sizes"
+  type = "string"
 }
 
 variable "do_region" {
@@ -19,7 +29,6 @@ variable "do_nodes" {
   description = "Count of droplet nodes"
 }
 
-variable "environment" {}
 variable "customer_id" {}
 variable "do_project" {}
 

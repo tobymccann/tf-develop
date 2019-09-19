@@ -35,7 +35,9 @@ module "do_admin" {
     do_tag_env = var.do_tag_env
     do_tag_role = var.do_tag_role
     do_droplet_name = var.do_droplet_name
+    do_droplet_size = var.do_droplet_size
     domain_name = var.domain_name
+    do_record_ttl = var.do_record_ttl
     do_nodes = var.do_nodes
     do_region = var.do_region
     customer_id = var.customer_id
