@@ -1,6 +1,6 @@
 terraform {
   required_version = "~> 0.12.0"
-    
+
   backend "remote" {}
 }
 
@@ -32,7 +32,7 @@ module "do_admin" {
     pvt_key = var.pvt_key
     ssh_id = var.ssh_id
     ssh_user = var.ssh_user
-    do_tag_env = digitalocean_tag.env.id
+    do_tag_env = var.do_tag_env
     do_tag_role = var.do_tag_role
     do_droplet_name = var.do_droplet_name
     domain_name = var.domain_name
