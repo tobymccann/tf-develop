@@ -24,8 +24,4 @@ variable "customer_id" {}
 variable "do_project" {}
 
 variable do_tag_role {}
-
-
-resource "digitalocean_tag" "do_tag_env" {
-  name = "admin"
-}
+variable do_tag_env {}

@@ -1,6 +1,4 @@
 terraform {
-  required_version = "~> 0.12.0"
-
   backend "remote" {}
 }
 
@@ -28,7 +26,7 @@ provider "digitalocean" {
 }
 
 module "do_admin" {
-    source = "https://github.com/tobymccann/terraform-do-droplet"
+    source = "github.com/tobymccann/terraform-do-droplet"
     pvt_key = var.pvt_key
     ssh_id = var.ssh_id
     ssh_user = var.ssh_user
