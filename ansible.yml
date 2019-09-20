@@ -1,0 +1,42 @@
+  
+---
+- hosts: all
+
+  tasks:
+    - name: Install DigitalOcean repo key
+      apt_key:
+        url: https://repos.sonar.digitalocean.com/sonar-agent.asc
+        state: present
+
+    - name: Install DigitalOcean apt repo
+      apt_repository:
+        repo: deb https://repos.sonar.digitalocean.com/apt main main
+        state: present
+        update_cache: yes
+
+    - name: Update all packages
+      apt:
+        upgrade: dist
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install Apps
+      action: apt name={{item}} state=present
+      with_items:
+        - tmux
+        - do-agent
+        - golang-go
+        - fail2ban
+    
+    - name: Create a login user
+       user:
+         name: jkennemer
+         password: '???'
+         groups: # Empty by default, here we give it some groups
+           - docker
+           - sudo
+         state: present
+         shell: /bin/bash       # Defaults to /bin/bash
+         system: no             # Defaults to no
+         createhome: yes        # Defaults to yes
+         home: /home/jkennemer  # Defaults to /home/<username>

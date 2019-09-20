@@ -43,3 +43,19 @@ module "do_admin" {
     customer_id = var.customer_id
     project = var.do_project
 }
+
+# create an ansible inventory file
+provider "ansible" {
+    plays {
+      playbook {
+        file_path = "./ansible.yml"
+#        roles_path = ["/path1", "/path2"]
+        force_handlers = false
+#        skip_tags = ["list", "of", "tags", "to", "skip"]
+#        start_at_task = "task-name"
+#        tags = ["list", "of", "tags"]
+      }
+      hosts = [modules.do_droplet_public_ip]
+#      groups = ["consensus"]
+    }
+  }
