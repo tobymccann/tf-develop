@@ -1,5 +1,14 @@
 # ####
 
+variable "do_admin_user" {
+  description = "DO Remote Dev-Admin Droplet Username"
+  type = "string"
+}
+
+variable "do_admin_pub_key" {
+  default = "~/.ssh/do-key-ecdsa.pub"
+}
+
 variable "domain_name" {
   description = "Customer domain name for this project"
   type        = "string"

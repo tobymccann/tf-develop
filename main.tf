@@ -32,6 +32,8 @@ module "do_admin" {
     pvt_key = var.pvt_key
     ssh_id = var.ssh_id
     ssh_user = var.ssh_user
+    do_admin_user = var.do_admin_user
+    do_admin_pub_key = var.do_admin_pub_key
     do_tag_env = var.do_tag_env
     do_tag_role = var.do_tag_role
     do_droplet_name = var.do_droplet_name
